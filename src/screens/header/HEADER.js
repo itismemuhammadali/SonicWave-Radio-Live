@@ -59,10 +59,10 @@ const Header = () => {
         <TouchableOpacity style={styles.modalOverlay} onPress={closeDrawer}>
           <Animated.View style={[styles.drawer, { transform: [{ translateX: slideAnim }] }]}>
             <DrawerItem text="Home" iconName="home-outline"  onPress={navigateToMain}  />
-            <DrawerItem text="Website" iconName="globe-outline" onPress={() => Linking.openURL('https://your-website-url.com')} />
-            <DrawerItem text="Twitter" iconName="logo-twitter" onPress={() => Linking.openURL('https://twitter.com')} />
-            <DrawerItem text="Facebook" iconName="logo-facebook" onPress={() => Linking.openURL('https://facebook.com')} />
-            <DrawerItem text="Youtube" iconName="logo-youtube" onPress={() => Linking.openURL('https://youtube.com')} />
+            <DrawerItem text="Website" iconName="globe-outline" onPress={() => Linking.openURL('https://radio.gov.pk/newslist/1')} />
+            <DrawerItem text="Twitter" iconName="logo-twitter" onPress={() => Linking.openURL('https://x.com/RadioPakistan')} />
+            <DrawerItem text="Facebook" iconName="logo-facebook" onPress={() => Linking.openURL('https://www.facebook.com/OfficialRadioPK?mibextid=ZbWKwL')} />
+            <DrawerItem text="Youtube" iconName="logo-youtube" onPress={() => Linking.openURL('https://youtube.com/@radiopakistannewsofficial?si=wre1xBtAiH5hosdB')} />
             <DrawerItem text="About Us" iconName="information-circle-outline" onPress={navigateToAboutUs} />
           </Animated.View>
         </TouchableOpacity>
