@@ -1,79 +1,106 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# 📻 SonicWave Radio Live
 
-# Getting Started
+> **Cross-Platform Digital Audio & Live Radio Broadcast Streaming Mobile Application** built with **React Native and react-native-sound**, featuring sub-second live station streaming, dynamic station artwork, background playback lifecycle management, and station switching.
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+[![React Native](https://img.shields.io/badge/React_Native-0.74-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://reactnative.dev)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org)
+[![Audio Engine](https://img.shields.io/badge/Engine-react--native--sound-FF5722?style=for-the-badge)](https://github.com/zmxv/react-native-sound)
+[![Platform](https://img.shields.io/badge/Platform-iOS_|_Android-38B000?style=for-the-badge)](https://reactnative.dev)
+[![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](LICENSE)
 
-## Step 1: Start the Metro Server
+---
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+## 📌 Executive Summary
 
-To start Metro, run the following command from the _root_ of your React Native project:
+**SonicWave Radio Live** is a production mobile audio streaming client delivering national and regional live radio broadcasts across Pakistan and South Asia. Engineered with native audio driver hooks via `react-native-sound`, it provides low-latency HTTP/HTTPS live stream decoding, smooth buffer recovery, and continuous audio playback even through transient network fluctuations.
 
-```bash
-# using npm
-npm start
+---
 
-# OR using Yarn
-yarn start
+## 🏗️ System Architecture
+
+```mermaid
+graph TD
+    subgraph UI & Navigation [React Native View Layer]
+        StationCarousel[Interactive Station Grid & Artwork Carousel]
+        PlayerModal[Full-Screen Live Player & Equalizer View]
+        MiniPlayer[Persistent Sticky Bottom Playback Bar]
+        ChannelSelector[Live Broadcast Channel Switcher]
+    end
+
+    subgraph Audio Control Pipeline
+        SoundInstance[Sound Audio Stream Controller]
+        BufferManager[Stream Buffer & Reconnect Orchestrator]
+        AudioFocus[System Audio Focus & Interruption Handler]
+    end
+
+    subgraph Live Stream CDN Endpoints
+        SautUlQuran[Saut ul Quran - 7002 HD Stream]
+        PlanetFM[Planet FM 87.6 - 7042 Live]
+        FM101[FM 101 Islamabad - 7008 Live]
+        WorldService[PBC World Service Broadcast - 7005]
+        SportsChannel[Sports & Health Channel - 7007]
+    end
+
+    UI --> AudioControlPipeline
+    SoundInstance --> LiveStreamCDNEndpoints
 ```
 
-## Step 2: Start your Application
+---
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+## ✨ Core Features & Technical Highlights
 
-### For Android
+### 1. 📡 Multi-Channel Live Broadcast Hub
+- **Station Directory:** Includes official live streams for *Saut ul Quran*, *Planet FM 87.6*, *FM 101 Islamabad*, *Islamabad Central Station*, *Current Affairs Channel*, *PBC World Service*, and the *Sports & Health Network*.
+- **Dynamic Stream Buffering:** Automatically handles network latency, connection handshakes, and jitter buffer stabilization.
 
+### 2. 🎛️ Audio Lifecycle & Interruption Management
+- Integrated `react-native-sound` state tracking managing stream initialization, playing, pausing, buffering, and resource disposal.
+- Audio focus lifecycle handling to gracefully pause playback upon incoming phone calls or conflicting system audio events.
+
+### 3. 🎨 Native-Feel User Interface
+- Fluid navigation with `@react-navigation/native-stack`.
+- High-resolution station artwork cards with real-time streaming state indicators.
+- One-tap quick toggle between stations with seamless stream tear-down and handoff.
+
+---
+
+## 💻 Tech Stack & Dependencies
+
+| Layer | Technologies |
+| :--- | :--- |
+| **Framework** | React Native 0.74 (Hermes JS Engine) |
+| **Language** | JavaScript (ESNext) / TypeScript 5.0 |
+| **Audio Engine** | `react-native-sound: ^0.11.2` |
+| **Navigation** | `@react-navigation/native`, `@react-navigation/native-stack` |
+| **Iconography** | `react-native-vector-icons (Ionicons)` |
+| **Screen Safety** | `react-native-safe-area-context`, `react-native-screens` |
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js (`>= 18`)
+- Android Studio with Android SDK (API 34+) or Xcode (macOS)
+
+### Setup Instructions
 ```bash
-# using npm
-npm run android
+# Clone the repository
+git clone https://github.com/itismemuhammadali/SonicWave-Radio-Live.git
+cd SonicWave-Radio-Live
 
-# OR using Yarn
-yarn android
+# Launch metro bundler
+npx react-native start
+
+# Run on target platform
+npx react-native run-android   # Android Device / Emulator
+npx react-native run-ios       # iOS Simulator
 ```
 
-### For iOS
+---
 
-```bash
-# using npm
-npm run ios
+## 👤 Author
 
-# OR using Yarn
-yarn ios
-```
-
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
-
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
-
-## Step 3: Modifying your App
-
-Now that you have successfully run the app, let's modify it.
-
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
-
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+- **Muhammad Ali**
+  - **GitHub:** [@itismemuhammadali](https://github.com/itismemuhammadali)
+  - **Portfolio:** [Portfolio Platform](https://github.com/itismemuhammadali)
