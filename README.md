@@ -1,5 +1,9 @@
 # 📻 SonicWave Radio Live
 
+<p align="center">
+  <img src="assets/branding/logo.jpg" alt="SonicWave Radio Live Logo" width="180" style="border-radius: 24px; box-shadow: 0 8px 32px rgba(236, 72, 153, 0.35);" />
+</p>
+
 > **Cross-Platform Digital Audio & Live Radio Broadcast Streaming Mobile Application** built with **React Native and react-native-sound**, featuring sub-second live station streaming, dynamic station artwork, background playback lifecycle management, and station switching.
 
 [![React Native](https://img.shields.io/badge/React_Native-0.74-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://reactnative.dev)
